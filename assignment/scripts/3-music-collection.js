@@ -47,3 +47,38 @@ function findByArtist (artistName) { //created new function findByArtist
 console.log('Looking for artist: Kanye West', findByArtist('Kanye West')); //Test will find artist Kanye West in collection
 console.log('Looking for artist: Chris Brown', findByArtist('Chris Brown')); // Test will find artist Chris Brown in collection
 console.log('Looking for artist Adele', findByArtist('Adele')); // Test will look for Adele but will not find her since she is not in array
+// Stretch Goals///
+function search(searchParameters) {
+    const searchResults = [];
+    
+  //  If there is no search object or an empty search object provided as input,
+  //  then return all albums in the `collection`.
+if (searchParameters === undefined || searchParameters === {}) {
+      return collection;
+    }
+ for (i = 0; i < collection.length; i++) {
+    let isAllConditionMatch = true;{
+  }for (const [key, value] of Object.entries(searchParameters)) {
+        if (key === 'trackName') {
+          const tracks = collection[i].tracks;
+          let trackMatch = false;
+          for (let j = 0; j < tracks.length; j++) {
+            if (tracks[j].name === value) {
+              foundTrack = true;
+            }
+          }
+          if (!trackMatch) {
+            isAllConditionMatch = false;
+          }
+        else if (collection[i][key] !== value) {
+          isAllConditionMatch = false;
+          break;
+        }
+      } 
+      if (isAllConditionMatch) {
+        searchResults.push(collection[i]);
+      }
+    }
+    return searchResults
+}
+}
