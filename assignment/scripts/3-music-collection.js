@@ -4,15 +4,15 @@ let collection = [];
 // created new variable collection and set it to an empty array
 function addToCollection (albumTitle,artist,yearPublished,genre) {
 let album = {
-    albumTitle: albumTitle,
-    artist: artist,
-    yearPublished: yearPublished,
-    genre: genre,
-} // created a function addToCollection that takes 4 arguments
+    albumTitle,
+    artist,
+    yearPublished,
+    genre,
+} ;// created a function addToCollection that takes 4 arguments
 //added object album to the function 
-collection.unshift(album) // added the object (album) and added it to collection array
-return album
-};
+collection.unshift(album); // added the object (album) and added it to collection array
+return album;
+}
 addToCollection('For The Cool in You', 'Babyface', '1993', 'R&B');
 console.log("Added For The Cool in You by Babyface", collection);
 
@@ -35,6 +35,15 @@ function showCollection (array){
     for (let i=0; i <collection.length; i++ ){
       console.log(`${collection[i].albumTitle} by ${collection[i].artist}, published in ${collection[i].yearPublished}, in the  genre of ${collection[i].genre}`);  
     }
-} // created new function addToCollection that can take argument for an array
-//lopped thru the function so it takes info from the array and formats it
+} console.log(collection);
 
+// created new function addToCollection that can take argument for an array
+//lopped thru the function so it takes info from the array and formats it
+showCollection(collection);
+
+function findByArtist (artistName) { //created new function findByArtist
+    return collection.filter(album => album.artist === artistName); // should return to a new array by artistName
+}
+console.log('Looking for artist: Kanye West', findByArtist('Kanye West')); //Test will find artist Kanye West in collection
+console.log('Looking for artist: Chris Brown', findByArtist('Chris Brown')); // Test will find artist Chris Brown in collection
+console.log('Looking for artist Adele', findByArtist('Adele')); // Test will look for Adele but will not find her since she is not in array
