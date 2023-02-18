@@ -30,3 +30,11 @@ console.log('Added The Documentary Album by The Game', collection);
 
 addToCollection('Late Registration', 'Kanye West', '2005', 'Rap');
 console.log('Added Late Registration by Kanye West', collection);
+// tested addToCollection function, added 6 albums to collection array
+function showCollection (array){
+    for (let i=0; i <collection.length; i++ ){
+      console.log(`${collection[i].albumTitle} by ${collection[i].artist}, published in ${collection[i].yearPublished}, in the  genre of ${collection[i].genre}`);  
+    }
+} // created new function addToCollection that can take argument for an array
+//lopped thru the function so it takes info from the array and formats it
+
