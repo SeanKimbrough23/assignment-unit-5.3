@@ -2,33 +2,46 @@ console.log('***** Music Collection *****')
 
 let collection = [];
 // created new variable collection and set it to an empty array
-function addToCollection (albumTitle,artist,yearPublished,genre) {
-let album = {
+function addToCollection (albumTitle,artist,yearPublished,genre,tracks) {
+const album = {
     albumTitle,
     artist,
     yearPublished,
     genre,
+    tracks,
 } ;// created a function addToCollection that takes 4 arguments
 //added object album to the function 
 collection.unshift(album); // added the object (album) and added it to collection array
 return album;
 }
-addToCollection('For The Cool in You', 'Babyface', '1993', 'R&B');
+addToCollection('For The Cool in You', 'Babyface', '1993', 'R&B',[
+{ name: 'When Can I see You', duration: '3:50' },
+{ name: 'For The Cool in You', duration: '4:54' }]);
 console.log("Added For The Cool in You by Babyface", collection);
 
-addToCollection('Never Say Never', 'Brandy', '1998', 'R&B');
+addToCollection('Never Say Never', 'Brandy', '1998', 'R&B',[
+    { name: 'Angel in Disguise', duration: '4:45' },
+    { name: 'Put That On Everything', duration: '4:51' }]);
 console.log("Added Never Say Never Album by Brandy", collection);
 
-addToCollection('Exclusive', 'Chris Brown', '2007', 'R&B');
+addToCollection('Exclusive', 'Chris Brown', '2007', 'R&B',[
+    { name: 'Take You Down', duration: '4:06' },
+    { name: 'With You', duration: '4:06' }]);
 console.log('Added Exclusive Album by Chris Brown', collection);
 
-addToCollection('Take Care', 'Drake', '2011', 'Hip Hop');
+addToCollection('Take Care', 'Drake', '2011', 'Hip Hop',[
+    { name: `Marvin's Room`, duration: '5:47' },
+    { name: 'For The Cool in You', duration: '4:54' }]);
 console.log('Added Take Care Album by Drake', collection);
 
-addToCollection('The Documentary', 'The Game', '2005','Rap');
+addToCollection('The Documentary', 'The Game', '2005','Rap',[
+    { name: 'Dreams', duration: '4:46' },
+    { name: 'Start From Scratch', duration: '4:07' }]);
 console.log('Added The Documentary Album by The Game', collection);
 
-addToCollection('Late Registration', 'Kanye West', '2005', 'Rap');
+addToCollection('Late Registration', 'Kanye West', '2005', 'Rap',[
+    { name: 'Drive Slow', duration: '4:33' },
+    { name: 'Hey Mama', duration: '4:21' }]);
 console.log('Added Late Registration by Kanye West', collection);
 // tested addToCollection function, added 6 albums to collection array
 function showCollection (array){
