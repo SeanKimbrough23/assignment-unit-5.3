@@ -46,16 +46,25 @@ console.log('Added Late Registration by Kanye West', collection);
 // tested addToCollection function, added 6 albums to collection array
 function showCollection (array){
     for (let i=0; i <collection.length; i++ ){
+        let currentAlbum = collection[i];
       console.log(`${collection[i].albumTitle} by ${collection[i].artist}, published in ${collection[i].yearPublished}, in the  genre of ${collection[i].genre}`);  
-    }
-} console.log(collection);
-
-// created new function addToCollection that can take argument for an array
+    
+ // created new function addToCollection that can take argument for an array
 //lopped thru the function so it takes info from the array and formats it
+
+let tracks = currentAlbum.tracks;
+
+for (j = 0; j < tracks.length; j++) {
+  let currentTrack = tracks[j];
+
+  console.log(`${j + 1}. ${currentTrack.name}: ${currentTrack.duration}`);
+}
+    }
+}
 showCollection(collection);
 
 function findByArtist (artistName) { //created new function findByArtist
-    return collection.filter(album => album.artist === artistName); // should return to a new array by artistName
+    return collection.filter(album => album.artist === artistName);// should return to a new array by artistName
 }
 console.log('Looking for artist: Kanye West', findByArtist('Kanye West')); //Test will find artist Kanye West in collection
 console.log('Looking for artist: Chris Brown', findByArtist('Chris Brown')); // Test will find artist Chris Brown in collection
@@ -72,7 +81,7 @@ if (searchParameters === undefined || searchParameters === {}) {
  for (i = 0; i < collection.length; i++) {
     let isAllConditionMatch = true;{
   }for (const [key, value] of Object.entries(searchParameters)) {
-        if (key === 'trackName') {
+        if (key === 'tracks') {
           const tracks = collection[i].tracks;
           let trackMatch = false;
           for (let j = 0; j < tracks.length; j++) {
@@ -103,3 +112,8 @@ console.log('Search for Artist The Game',search({artist:'Chris  Brown'}));
 console.log('Search for Artist Kanye West',search({artist:'Chris  Brown'}));
 console.log('Search for Artist Brandy',search({artist:'Chris  Brown'}));
 // all returned artist Kanye West.. must find the problem
+console.log('Search for Artist Jeezy',search({artist:'Jeezy'})); // artist isn't in array and it still returned Kanye West
+// Testing to see if year published returns correct album
+console.log('Searching for all year 1993:', search({ yearPublished: 1993 }));
+console.log('Searching for all year 2011:', search({ yearPublished: 2011 }));
+console.log('Searching for all year 2005:', search({ yearPublished: 2005 })); 
