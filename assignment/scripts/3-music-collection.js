@@ -95,3 +95,11 @@ if (searchParameters === undefined || searchParameters === {}) {
     return searchResults
 }
 }
+console.log('Testing the search function', search()); // output collection array
+console.log('Search for Artist Chris Brown:',search({artist:'Chris  Brown'})); // output was Kanye West (wrong)
+console.log('Search for Artist Babyface',search({artist:'Babyface'}));
+console.log('Search for Artist Drake',search({artist:'Drake'}));
+console.log('Search for Artist The Game',search({artist:'Chris  Brown'}));
+console.log('Search for Artist Kanye West',search({artist:'Chris  Brown'}));
+console.log('Search for Artist Brandy',search({artist:'Chris  Brown'}));
+// all returned artist Kanye West.. must find the problem
